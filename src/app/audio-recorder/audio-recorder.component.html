@@ -1,0 +1,50 @@
+<div class="audio-recorder-container">
+  <!-- Initial Recording Button -->
+  <div *ngIf="!isRecording && !audioUrl" class="start-recording">
+    <button class="record-btn" (click)="startRecording()">
+      <span class="mic-icon">🎤</span>
+      <span class="btn-text">Start Recording</span>
+    </button>
+  </div>
+
+  <!-- Recording in Progress -->
+  <div *ngIf="isRecording" class="recording-in-progress">
+    <div class="recording-header">
+      <div class="recording-time">{{ seconds }} sec</div>
+      <button class="stop-btn" (click)="stopRecording()">
+        <span class="stop-icon">■</span>
+        <span class="btn-text">Stop</span>
+      </button>
+    </div>
+
+    <div class="wave-container">
+      <canvas #waveformCanvas class="waveform"></canvas>
+      <div class="wave-overlay" *ngIf="isRecording">
+        <!-- Static wave pattern as fallback -->
+        <div class="wave-bar" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"
+          [style.height.px]="20 + (i % 5) * 10" [style.animation-delay]="i * 0.1 + 's'">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Playback Controls -->
+  <div *ngIf="audioUrl" class="playback-controls">
+    <div class="player-container">
+      <button class="play-btn" (click)="playRecording()" [class.playing]="isPlaying">
+        <span class="play-icon" *ngIf="!isPlaying">▶</span>
+        <span class="pause-icon" *ngIf="isPlaying">⏸️</span>
+      </button>
+      <div class="time-display">{{ seconds }} seconds</div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="cancel-btn" (click)="cancel()">Cancel</button>
+      <button class="record-again-btn" (click)="startRecording()">Record Again</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="isProcessing" class="loading-state">
+  <div class="loading-spinner"></div>
+  <span>Processing your recording...</span>
+</div>

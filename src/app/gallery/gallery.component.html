@@ -1,0 +1,36 @@
+<div class="container main-container">
+  <div class="content-wrapper">
+    <!-- Gallery Section -->
+    <div class="gallery">
+      <!-- Combined header with title and counter in the same line -->
+      <div class="gallery-header">
+        <h3>Gallery</h3>
+        <div class="image-counter" [attr.aria-label]="'Slide ' + (currentIndex + 1) + ' of ' + images.length">
+          {{ currentIndex + 1 }}/{{ images.length }}
+        </div>
+      </div>
+
+      <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let image of images; let i = index" [class.active]="i === 0">
+            <div class="img-container">
+              <img [src]="image" class="d-block w-100 carousel-img" alt="Slide {{ i + 1 }}">
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Dots -->
+        <div class="carousel-indicators custom-indicators">
+          <button *ngFor="let image of images; let i = index" type="button" data-bs-target="#galleryCarousel"
+            [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-label]="'Slide ' + (i + 1)">
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio Recorder Section -->
+    <div class="audio-recorder-section">
+      <app-audio-recorder></app-audio-recorder>
+    </div>
+  </div>
+</div>
