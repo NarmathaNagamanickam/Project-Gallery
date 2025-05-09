@@ -8,7 +8,7 @@ This project is built as part of a system test assignment, using **Angular 17**,
 
 ## 🚀 Features
 
-### 1. 📸 Gallery Carousel
+### 1. Gallery Carousel
 
 - Responsive image carousel using Bootstrap.
 - Swipe/slide support with prev/next buttons.
@@ -16,7 +16,7 @@ This project is built as part of a system test assignment, using **Angular 17**,
 - Shadow around the image card.
 - Image count display (`current / total`).
 
-### 2. 🎙️ Audio Recorder (Planned/Optional)
+### 2. Audio Recorder (Planned/Optional)
 
 - "Tap to start recording" initiates microphone access.
 - Animated wave design (can be static/dummy for demo).
@@ -26,17 +26,17 @@ This project is built as part of a system test assignment, using **Angular 17**,
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - Angular 17
 - Bootstrap
 - HTML & CSS
 - TypeScript
-- Audio recording via browser APIs (`MediaRecorder`)
+- Audio recording via browser
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/your-project.git
